@@ -8,6 +8,8 @@ if str(welcome) == 'y':
     print('Resta')
     print('Multiplicacion')
     print('Dividision')
+    if str(input()) != 'suma' or 'resta' or 'multiplicacion' or 'division':
+        print('ERROR. Selecciona una de las opciones anteriores')
 
     operacion = str(input())
     if operacion == 'suma':
