@@ -1,39 +1,36 @@
-welcome = str(input('Hola te gustaria hacer un calculo y/n: '))
-if str(welcome) == 'y':
-    print('vamos a ello')
+if __name__ == '__main__':
     
-    print('Que calculo te gustaria hacer?')
-    print('Selecciona una de las siguientes opciones:')
-    print('Suma')
-    print('Resta')
-    print('Multiplicacion')
-    print('Dividision')
-    if str(input()) != 'suma' or 'resta' or 'multiplicacion' or 'division':
-        print('ERROR. Selecciona una de las opciones anteriores')
+    welcome = input('Hola te gustaria hacer un calculo y/n: ')
+    if welcome == 'y':
+        print(
+            'vamos a ello\n'
+            'Que calculo te gustaria hacer?\n'
+            'Suma\n'
+            'Resta\n'
+            'Multiplicacion\n'
+            'Division'
+        )
+        
+        
+        operacion = input('Selecciona una de las siguientes opciones: ').lower()
+        while operacion not in ['suma', 'resta', 'multiplicacion', 'division']:
+            print('ERROR. Selecciona una de las opciones anteriores')
+            operacion = input('Selecciona una de las siguientes opciones: ').lower()
 
-    operacion = str(input())
-    if operacion == 'suma':
-        n1 = float(input('introduce el primer numero '))
-        n2 = float(input('introduce el segundo numero '))
-        print('el resultado es', n1 + n2)
+        n1 = float(input('introduce el primer numero: '))
+        n2 = float(input('introduce el segundo numero: '))
+        match operacion:
+            case 'suma':
+                print('el resultado es', n1 + n2)
+            case 'resta':
+                print('el resultado es', n1 - n2)
+            case 'multiplicacion':
+                print('el resultado es', n1 * n2)
+            case 'division':
+                print('el resultado es', n1 / n2)
 
-    if operacion == 'resta':
-        n1 = float(input('introduce el primer numero '))
-        n2 = float(input('introduce el segundo numero '))
-        print('el resultado es', n1 - n2)
+    elif welcome == 'n':
+        print('Genial! Espero ayudarte la proxima vez')
 
-    if operacion == 'multiplicacion':
-        n1 = float(input('introduce el primer numero '))
-        n2 = float(input('introduce el segundo numero '))
-        print('el resultado es', n1 * n2)
-
-    if operacion == 'division':
-        n1 = float(input('introduce el primer numero '))
-        n2 = float(input('introduce el segundo numero '))
-        print('el resultado es', n1 / n2)
-
-elif str(welcome) == 'n':
-    print('Genial! Espero ayudarte la proxima vez')
-    quit()
-elif str(welcome) != 'y' or str(welcome) != 'n':
-    print('ERROR. Introduce y or n')
+    else:
+        print('ERROR. Introduce y or n')
